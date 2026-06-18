@@ -67,18 +67,49 @@
 
   /* Visual panel */
   .visual{
-    background:#0d2647;color:#fff;padding:26px;display:flex;flex-direction:column;
+    background:#16120e;color:#fff;padding:26px;display:flex;flex-direction:column;
     justify-content:center;min-height:300px;position:relative;
   }
-  .visual.alt{background:#0b3a2e}
+  .visual.alt{background:#1c1712}
   .visual .vlabel{
     position:absolute;top:14px;left:18px;font-size:.66rem;letter-spacing:.16em;
-    text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600;
+    text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600;
   }
-  .screenshot-note{
-    margin-top:16px;font-size:.72rem;color:rgba(255,255,255,.6);
-    border-top:1px dashed rgba(255,255,255,.25);padding-top:10px;
+  .ps-hint{
+    margin-top:14px;font-size:.72rem;color:#ffae3b;text-align:center;
+    border-top:1px dashed rgba(255,174,59,.3);padding-top:12px;font-weight:600;
+    letter-spacing:.02em;
   }
+  .ps-hint::before{content:"\25B8 ";color:#ff5d3b}
+
+  /* clickable diagram boxes */
+  .flow .hot{cursor:pointer;transition:opacity .15s ease,transform .15s ease;transform-box:fill-box;transform-origin:center}
+  .flow .hot:hover{opacity:.82;transform:scale(1.04)}
+  .flow .hot:focus{outline:none}
+  .flow .hot:focus rect,.flow .hot:focus > rect{stroke:#ff5d3b;stroke-width:2.6}
+
+  /* PowerShell modal */
+  .ps-modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(16,18,14,.62);backdrop-filter:blur(4px)}
+  .ps-modal.open{display:flex}
+  .ps-dialog{background:#16120e;border:1px solid #2c2620;border-radius:16px;max-width:760px;width:100%;max-height:84vh;display:flex;flex-direction:column;box-shadow:0 30px 80px rgba(0,0,0,.5);overflow:hidden}
+  .ps-dialog .ps-bar{display:flex;align-items:center;gap:13px;padding:14px 18px;background:#211b15;border-bottom:1px solid #2c2620}
+  .ps-dialog .ps-dots{display:flex;gap:7px}
+  .ps-dialog .ps-dots b{width:12px;height:12px;border-radius:50%;display:block}
+  .ps-dialog .ps-dots b:nth-child(1){background:#ff5d3b}.ps-dialog .ps-dots b:nth-child(2){background:#ffae3b}.ps-dialog .ps-dots b:nth-child(3){background:#3ecf6a}
+  .ps-dialog .ps-title{font-family:"Consolas","JetBrains Mono",monospace;font-size:.84rem;color:#b6aea3}
+  .ps-dialog .ps-title span{color:#ffae3b}
+  .ps-dialog .ps-close{margin-left:auto;background:none;border:none;color:#b6aea3;font-size:1.5rem;line-height:1;cursor:pointer;padding:0 4px;transition:.15s}
+  .ps-dialog .ps-close:hover{color:#ff5d3b}
+  .ps-dialog .ps-sub{padding:14px 22px 0;color:#8a8278;font-size:.84rem}
+  .ps-dialog pre{margin:14px 22px 22px;overflow:auto;background:#0e0b08;border:1px solid #2c2620;border-radius:10px;padding:18px;flex:1}
+  .ps-dialog code{font-family:"Consolas","JetBrains Mono",monospace;font-size:.82rem;line-height:1.7;color:#e9e2d8;white-space:pre;display:block}
+  .ps-dialog .cmt{color:#6f8a5f}
+  .ps-dialog .cmd{color:#7fd0ff}
+  .ps-dialog .par{color:#ffae3b}
+  .ps-dialog .str{color:#9fe6a0}
+  .ps-dialog .var{color:#ff9d7a}
+  .ps-copy{display:inline-flex;align-items:center;gap:7px;margin:0 22px 20px;background:linear-gradient(100deg,#ff5d3b,#ffae3b);color:#1b1714;border:none;padding:9px 16px;border-radius:8px;font-weight:700;font-size:.84rem;cursor:pointer;align-self:flex-start;transition:.18s;font-family:inherit}
+  .ps-copy:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(255,93,59,.3)}
 
   /* Body panel */
   .body{padding:28px}
@@ -121,7 +152,7 @@
     <p class="role">IT Consultant &amp; Security Specialist · Owner, Twisted Pair Technology</p>
     <p class="lede">Selected client engagements in Microsoft 365 security and email protection for healthcare and other regulated organizations. Each project below shows the goal, the scope, and my specific role in delivering it.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="https://kevinvsmith.github.io" target="_blank" rel="noopener">View Interactive Résumé →</a>
+      <a class="btn btn-primary" href="https://kevinvsmith.github.io" target="_blank" rel="noopener">View Interactive Resume →</a>
       <a class="btn btn-ghost" href="#projects">See Projects</a>
     </div>
   </div>
@@ -142,40 +173,45 @@
         <svg class="flow" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Email encryption flow diagram">
           <defs>
             <marker id="arr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
-              <path d="M0,0 L6,3 L0,6 Z" fill="#7fb4ff"/>
+              <path d="M0,0 L6,3 L0,6 Z" fill="#ffae3b"/>
             </marker>
           </defs>
-          <!-- sender -->
-          <rect x="18" y="100" width="92" height="56" rx="9" fill="#143a66" stroke="#3f7ad1"/>
-          <text x="64" y="124" fill="#cfe2ff" font-size="11" text-anchor="middle" font-family="Segoe UI">Medical</text>
-          <text x="64" y="140" fill="#cfe2ff" font-size="11" text-anchor="middle" font-family="Segoe UI">office staff</text>
-          <!-- M365 lock -->
-          <rect x="164" y="86" width="92" height="84" rx="9" fill="#0a6cff" stroke="#7fb4ff"/>
-          <text x="210" y="112" fill="#fff" font-size="11" text-anchor="middle" font-family="Segoe UI">Microsoft</text>
-          <text x="210" y="127" fill="#fff" font-size="11" text-anchor="middle" font-family="Segoe UI">Purview /</text>
-          <text x="210" y="142" fill="#fff" font-size="11" text-anchor="middle" font-family="Segoe UI">Azure RMS</text>
-          <!-- lock icon -->
-          <rect x="198" y="150" width="24" height="16" rx="2" fill="#fff"/>
-          <path d="M203 150 v-5 a7 7 0 0 1 14 0 v5" fill="none" stroke="#fff" stroke-width="2.4"/>
-          <!-- recipient -->
-          <rect x="310" y="100" width="92" height="56" rx="9" fill="#143a66" stroke="#3f7ad1"/>
-          <text x="356" y="124" fill="#cfe2ff" font-size="11" text-anchor="middle" font-family="Segoe UI">Patient /</text>
-          <text x="356" y="140" fill="#cfe2ff" font-size="11" text-anchor="middle" font-family="Segoe UI">provider</text>
-          <!-- arrows -->
-          <line x1="110" y1="128" x2="160" y2="128" stroke="#7fb4ff" stroke-width="2.2" marker-end="url(#arr)"/>
-          <line x1="256" y1="128" x2="306" y2="128" stroke="#7fb4ff" stroke-width="2.2" marker-end="url(#arr)"/>
-          <text x="135" y="120" fill="#9fc2f5" font-size="8.5" text-anchor="middle" font-family="Segoe UI">PHI email</text>
-          <text x="281" y="120" fill="#9fc2f5" font-size="8.5" text-anchor="middle" font-family="Segoe UI">encrypted</text>
           <!-- title -->
           <text x="210" y="40" fill="#fff" font-size="14" text-anchor="middle" font-family="Segoe UI" font-weight="600">Secure PHI in transit</text>
-          <text x="210" y="58" fill="#9fc2f5" font-size="10" text-anchor="middle" font-family="Segoe UI">Transport rules · DLP · Rights Management</text>
-          <text x="210" y="210" fill="#9fc2f5" font-size="9.5" text-anchor="middle" font-family="Segoe UI">Triggered by [secure] keyword &amp; sensitive-info detection</text>
+          <text x="210" y="58" fill="#c9b9a3" font-size="10" text-anchor="middle" font-family="Segoe UI">Transport rules · DLP · Rights Management</text>
+          <!-- sender (clickable) -->
+          <a class="hot" role="button" tabindex="0" data-ps="dlp" aria-label="View DLP policy PowerShell">
+            <rect x="18" y="100" width="92" height="56" rx="9" fill="#2c2620" stroke="#ff5d3b"/>
+            <text x="64" y="124" fill="#ffd9cc" font-size="11" text-anchor="middle" font-family="Segoe UI">Medical</text>
+            <text x="64" y="140" fill="#ffd9cc" font-size="11" text-anchor="middle" font-family="Segoe UI">office staff</text>
+          </a>
+          <!-- M365 lock (clickable) -->
+          <a class="hot" role="button" tabindex="0" data-ps="rms" aria-label="View Azure RMS PowerShell">
+            <rect x="164" y="86" width="92" height="84" rx="9" fill="#ff5d3b" stroke="#ffae3b"/>
+            <text x="210" y="112" fill="#fff" font-size="11" text-anchor="middle" font-family="Segoe UI">Microsoft</text>
+            <text x="210" y="127" fill="#fff" font-size="11" text-anchor="middle" font-family="Segoe UI">Purview /</text>
+            <text x="210" y="142" fill="#fff" font-size="11" text-anchor="middle" font-family="Segoe UI">Azure RMS</text>
+            <rect x="198" y="150" width="24" height="16" rx="2" fill="#fff"/>
+            <path d="M203 150 v-5 a7 7 0 0 1 14 0 v5" fill="none" stroke="#fff" stroke-width="2.4"/>
+          </a>
+          <!-- recipient (clickable) -->
+          <a class="hot" role="button" tabindex="0" data-ps="transport" aria-label="View transport rule PowerShell">
+            <rect x="310" y="100" width="92" height="56" rx="9" fill="#2c2620" stroke="#ffae3b"/>
+            <text x="356" y="124" fill="#ffe6b3" font-size="11" text-anchor="middle" font-family="Segoe UI">Patient /</text>
+            <text x="356" y="140" fill="#ffe6b3" font-size="11" text-anchor="middle" font-family="Segoe UI">provider</text>
+          </a>
+          <!-- arrows -->
+          <line x1="110" y1="128" x2="160" y2="128" stroke="#ffae3b" stroke-width="2.2" marker-end="url(#arr)"/>
+          <line x1="256" y1="128" x2="306" y2="128" stroke="#ffae3b" stroke-width="2.2" marker-end="url(#arr)"/>
+          <text x="135" y="120" fill="#c9b9a3" font-size="8.5" text-anchor="middle" font-family="Segoe UI">PHI email</text>
+          <text x="281" y="120" fill="#c9b9a3" font-size="8.5" text-anchor="middle" font-family="Segoe UI">encrypted</text>
+          <text x="210" y="210" fill="#c9b9a3" font-size="9.5" text-anchor="middle" font-family="Segoe UI">Triggered by [secure] keyword &amp; sensitive-info detection</text>
         </svg>
-        <p class="screenshot-note">Replace with a real screenshot of your Purview / Exchange transport rule or the encrypted-message recipient view.</p>
+        <p class="ps-hint">Click any box to see the real PowerShell</p>
       </div>
       <div class="body">
         <h3>Email Encryption</h3>
-        <p class="tagline">North Florida Thyroid Center · Capital Area Healthy Start</p>
+        <p class="tagline">Healthcare clients</p>
         <div class="meta-tags">
           <span class="tag">Microsoft 365</span>
           <span class="tag">Azure Rights Management</span>
@@ -213,46 +249,57 @@
         <svg class="flow" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SPF DKIM DMARC filtering diagram">
           <defs>
             <marker id="arr2" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
-              <path d="M0,0 L6,3 L0,6 Z" fill="#6fe0ad"/>
+              <path d="M0,0 L6,3 L0,6 Z" fill="#ffae3b"/>
+            </marker>
+            <marker id="arr2r" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#e08a6f"/>
             </marker>
           </defs>
           <text x="210" y="32" fill="#fff" font-size="14" text-anchor="middle" font-family="Segoe UI" font-weight="600">Layered phishing defense</text>
           <!-- incoming -->
-          <rect x="18" y="108" width="86" height="48" rx="9" fill="#114d3c" stroke="#3fa580"/>
-          <text x="61" y="129" fill="#d3f5e6" font-size="10.5" text-anchor="middle" font-family="Segoe UI">Inbound</text>
-          <text x="61" y="144" fill="#d3f5e6" font-size="10.5" text-anchor="middle" font-family="Segoe UI">email</text>
-          <!-- checks stack -->
+          <rect x="18" y="108" width="86" height="48" rx="9" fill="#2c2620" stroke="#c9b9a3"/>
+          <text x="61" y="129" fill="#e9e2d8" font-size="10.5" text-anchor="middle" font-family="Segoe UI">Inbound</text>
+          <text x="61" y="144" fill="#e9e2d8" font-size="10.5" text-anchor="middle" font-family="Segoe UI">email</text>
+          <!-- checks stack (clickable) -->
           <g font-family="Segoe UI">
-            <rect x="138" y="62" width="64" height="34" rx="7" fill="#0c6e51" stroke="#6fe0ad"/>
-            <text x="170" y="83" fill="#fff" font-size="11" text-anchor="middle">SPF</text>
-            <rect x="138" y="113" width="64" height="34" rx="7" fill="#0c6e51" stroke="#6fe0ad"/>
-            <text x="170" y="134" fill="#fff" font-size="11" text-anchor="middle">DKIM</text>
-            <rect x="138" y="164" width="64" height="34" rx="7" fill="#0c6e51" stroke="#6fe0ad"/>
-            <text x="170" y="185" fill="#fff" font-size="11" text-anchor="middle">DMARC</text>
+            <a class="hot" role="button" tabindex="0" data-ps="spf" aria-label="View SPF PowerShell">
+              <rect x="138" y="62" width="64" height="34" rx="7" fill="#ff5d3b" stroke="#ffae3b"/>
+              <text x="170" y="83" fill="#fff" font-size="11" text-anchor="middle">SPF</text>
+            </a>
+            <a class="hot" role="button" tabindex="0" data-ps="dkim" aria-label="View DKIM PowerShell">
+              <rect x="138" y="113" width="64" height="34" rx="7" fill="#ff5d3b" stroke="#ffae3b"/>
+              <text x="170" y="134" fill="#fff" font-size="11" text-anchor="middle">DKIM</text>
+            </a>
+            <a class="hot" role="button" tabindex="0" data-ps="dmarc" aria-label="View DMARC PowerShell">
+              <rect x="138" y="164" width="64" height="34" rx="7" fill="#ff5d3b" stroke="#ffae3b"/>
+              <text x="170" y="185" fill="#fff" font-size="11" text-anchor="middle">DMARC</text>
+            </a>
           </g>
-          <!-- defender -->
-          <rect x="244" y="100" width="74" height="64" rx="9" fill="#0a8f63" stroke="#6fe0ad"/>
-          <text x="281" y="126" fill="#fff" font-size="10" text-anchor="middle" font-family="Segoe UI">Defender</text>
-          <text x="281" y="140" fill="#fff" font-size="10" text-anchor="middle" font-family="Segoe UI">anti-spam</text>
+          <!-- defender (clickable) -->
+          <a class="hot" role="button" tabindex="0" data-ps="defender" aria-label="View Defender PowerShell">
+            <rect x="244" y="100" width="74" height="64" rx="9" fill="#e8932b" stroke="#ffd9a0"/>
+            <text x="281" y="126" fill="#1b1714" font-size="10" text-anchor="middle" font-family="Segoe UI" font-weight="600">Defender</text>
+            <text x="281" y="140" fill="#1b1714" font-size="10" text-anchor="middle" font-family="Segoe UI" font-weight="600">anti-spam</text>
+          </a>
           <!-- outcomes -->
-          <rect x="346" y="74" width="60" height="32" rx="7" fill="#143a66" stroke="#3f7ad1"/>
-          <text x="376" y="94" fill="#cfe2ff" font-size="10" text-anchor="middle" font-family="Segoe UI">Inbox</text>
-          <rect x="346" y="158" width="60" height="32" rx="7" fill="#5a1d1d" stroke="#d98a8a"/>
-          <text x="376" y="178" fill="#f5d3d3" font-size="9" text-anchor="middle" font-family="Segoe UI">Quarantine</text>
+          <rect x="346" y="74" width="60" height="32" rx="7" fill="#2c2620" stroke="#3ecf6a"/>
+          <text x="376" y="94" fill="#9fe6a0" font-size="10" text-anchor="middle" font-family="Segoe UI">Inbox</text>
+          <rect x="346" y="158" width="60" height="32" rx="7" fill="#2c2620" stroke="#e08a6f"/>
+          <text x="376" y="178" fill="#f0b6a6" font-size="9" text-anchor="middle" font-family="Segoe UI">Quarantine</text>
           <!-- arrows -->
-          <line x1="104" y1="132" x2="134" y2="100" stroke="#6fe0ad" stroke-width="2" marker-end="url(#arr2)"/>
-          <line x1="104" y1="132" x2="134" y2="131" stroke="#6fe0ad" stroke-width="2" marker-end="url(#arr2)"/>
-          <line x1="104" y1="132" x2="134" y2="178" stroke="#6fe0ad" stroke-width="2" marker-end="url(#arr2)"/>
-          <line x1="202" y1="132" x2="242" y2="132" stroke="#6fe0ad" stroke-width="2.2" marker-end="url(#arr2)"/>
-          <line x1="318" y1="118" x2="344" y2="92" stroke="#6fe0ad" stroke-width="2" marker-end="url(#arr2)"/>
-          <line x1="318" y1="146" x2="344" y2="172" stroke="#d98a8a" stroke-width="2" marker-end="url(#arr2)"/>
-          <text x="210" y="230" fill="#9fe6c8" font-size="9.5" text-anchor="middle" font-family="Segoe UI">Authenticated mail delivered · spoofed &amp; phishing mail quarantined</text>
+          <line x1="104" y1="132" x2="134" y2="100" stroke="#ffae3b" stroke-width="2" marker-end="url(#arr2)"/>
+          <line x1="104" y1="132" x2="134" y2="131" stroke="#ffae3b" stroke-width="2" marker-end="url(#arr2)"/>
+          <line x1="104" y1="132" x2="134" y2="178" stroke="#ffae3b" stroke-width="2" marker-end="url(#arr2)"/>
+          <line x1="202" y1="132" x2="242" y2="132" stroke="#ffae3b" stroke-width="2.2" marker-end="url(#arr2)"/>
+          <line x1="318" y1="118" x2="344" y2="92" stroke="#3ecf6a" stroke-width="2" marker-end="url(#arr2)"/>
+          <line x1="318" y1="146" x2="344" y2="172" stroke="#e08a6f" stroke-width="2" marker-end="url(#arr2r)"/>
+          <text x="210" y="230" fill="#c9b9a3" font-size="9.5" text-anchor="middle" font-family="Segoe UI">Authenticated mail delivered · spoofed &amp; phishing mail quarantined</text>
         </svg>
-        <p class="screenshot-note">Replace with a real screenshot of your DMARC DNS record, Defender anti-phishing policy, or a quarantine report.</p>
+        <p class="ps-hint">Click SPF, DKIM, DMARC, or Defender to see the real PowerShell</p>
       </div>
       <div class="body">
         <h3>Phishing &amp; Spam Protection</h3>
-        <p class="tagline">Twisted Pair Technology &amp; healthcare clients</p>
+        <p class="tagline">Healthcare clients</p>
         <div class="meta-tags">
           <span class="tag">SPF</span>
           <span class="tag">DKIM</span>
@@ -267,8 +314,8 @@
         <h4>My specific role</h4>
         <p>As the consultant and sole implementer, I:</p>
         <ul>
-          <li>Configured full SPF, DKIM, and DMARC for twisttechnology.com (Microsoft-hosted DNS), with DKIM enabled and DMARC set to <em>p=quarantine; pct=25</em> for a controlled, phased rollout.</li>
-          <li>Began the same authentication build-out for thyroidcenter.com, where DNS is managed in cPanel.</li>
+          <li>Configured full SPF, DKIM, and DMARC for the primary business domain (Microsoft-hosted DNS), with DKIM enabled and DMARC set to <em>p=quarantine; pct=25</em> for a controlled, phased rollout.</li>
+          <li>Began the same authentication build-out for a client domain where DNS is managed in cPanel.</li>
           <li>Tuned Microsoft Defender anti-spam and anti-phishing policies to quarantine spoofed and malicious mail.</li>
           <li>Monitored DMARC aggregate reports to confirm legitimate mail passed before raising enforcement.</li>
           <li>Documented the configuration so the policy can be advanced from monitoring to full enforcement safely.</li>
@@ -279,10 +326,10 @@
 
   <section class="resume-band">
     <div>
-      <h3>Interactive Résumé</h3>
-      <p>This portfolio is part of my interactive résumé site — including my background, skills, certifications, and a downloadable résumé.</p>
+      <h3>Interactive Resume</h3>
+      <p>This portfolio is part of my interactive resume site — including my background, skills, certifications, and a downloadable resume.</p>
     </div>
-    <a class="btn btn-primary" style="background:var(--accent);color:#fff" href="https://kevinvsmith.github.io" target="_blank" rel="noopener">Open Interactive Résumé →</a>
+    <a class="btn btn-primary" style="background:var(--accent);color:#fff" href="https://kevinvsmith.github.io" target="_blank" rel="noopener">Open Interactive Resume →</a>
   </section>
 
 </main>
@@ -292,6 +339,189 @@
     Kevin Smith · LIS 4708 IT Professions · Career Portfolio · Twisted Pair Technology
   </div>
 </footer>
+
+<!-- PowerShell modal -->
+<div class="ps-modal" id="psModal" role="dialog" aria-modal="true" aria-labelledby="psTitle">
+  <div class="ps-dialog">
+    <div class="ps-bar">
+      <div class="ps-dots"><b></b><b></b><b></b></div>
+      <div class="ps-title">Windows PowerShell &mdash; <span id="psTitle">snippet</span></div>
+      <button class="ps-close" id="psClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="ps-sub" id="psSub"></div>
+    <pre><code id="psCode"></code></pre>
+    <button class="ps-copy" id="psCopy">&#128203; Copy code</button>
+  </div>
+</div>
+
+<script>
+// Real PowerShell snippets for each diagram box. Tenant-specific values shown as placeholders.
+const PS = {
+  rms: {
+    title: "Azure Rights Management",
+    sub: "Activate Azure RMS / Information Rights Management in the tenant so encrypted mail can be protected.",
+    code:
+'<span class="cmt"># Connect to Exchange Online</span>\n' +
+'<span class="cmd">Connect-ExchangeOnline</span> <span class="par">-UserPrincipalName</span> <span class="str">admin@yourdomain.com</span>\n\n' +
+'<span class="cmt"># Install + connect the AIPService module (Azure RMS)</span>\n' +
+'<span class="cmd">Install-Module</span> <span class="par">-Name</span> <span class="str">AIPService</span> <span class="par">-Force</span>\n' +
+'<span class="cmd">Connect-AipService</span>\n\n' +
+'<span class="cmt"># Activate Rights Management for the tenant</span>\n' +
+'<span class="cmd">Enable-AipService</span>\n\n' +
+'<span class="cmt"># Point Exchange Online at the RMS key-sharing URL and turn on IRM</span>\n' +
+'<span class="var">$rmsConfig</span> = <span class="cmd">Get-AipServiceConfiguration</span>\n' +
+'<span class="cmd">Set-IRMConfiguration</span> <span class="par">-RMSOnlineKeySharingLocation</span> <span class="var">$rmsConfig</span>.LicensingIntranetDistributionPointUrl\n' +
+'<span class="cmd">Set-IRMConfiguration</span> <span class="par">-InternalLicensingEnabled</span> <span class="var">$true</span> <span class="par">-ExternalLicensingEnabled</span> <span class="var">$true</span>\n\n' +
+'<span class="cmt"># Verify encryption is ready</span>\n' +
+'<span class="cmd">Test-IRMConfiguration</span> <span class="par">-Sender</span> <span class="str">admin@yourdomain.com</span>'
+  },
+  dlp: {
+    title: "DLP policy + custom DOB type",
+    sub: "Data Loss Prevention policy with a custom sensitive-information type that detects dates of birth in outbound PHI.",
+    code:
+'<span class="cmt"># Connect to the Security &amp; Compliance Center</span>\n' +
+'<span class="cmd">Connect-IPPSSession</span> <span class="par">-UserPrincipalName</span> <span class="str">admin@yourdomain.com</span>\n\n' +
+'<span class="cmt"># Import the custom sensitive-info type (UTF-16 BOM-encoded XML rule pack for DOB)</span>\n' +
+'<span class="var">$rulePack</span> = <span class="cmd">Get-Content</span> <span class="str">".\\DOB-RulePack.xml"</span> <span class="par">-Encoding</span> Byte <span class="par">-ReadCount</span> <span class="str">0</span>\n' +
+'<span class="cmd">New-DlpSensitiveInformationTypeRulePackage</span> <span class="par">-FileData</span> <span class="var">$rulePack</span>\n\n' +
+'<span class="cmt"># Create the DLP policy scoped to Exchange</span>\n' +
+'<span class="cmd">New-DlpCompliancePolicy</span> <span class="par">-Name</span> <span class="str">"PHI Protection - Email"</span> <span class="par">`</span>\n' +
+'    <span class="par">-ExchangeLocation</span> <span class="str">All</span> <span class="par">-Mode</span> <span class="str">Enable</span>\n\n' +
+'<span class="cmt"># Rule: detect PHI (DOB + U.S. SSN) and trigger encryption / block</span>\n' +
+'<span class="cmd">New-DlpComplianceRule</span> <span class="par">-Name</span> <span class="str">"PHI - DOB and SSN"</span> <span class="par">`</span>\n' +
+'    <span class="par">-Policy</span> <span class="str">"PHI Protection - Email"</span> <span class="par">`</span>\n' +
+'    <span class="par">-ContentContainsSensitiveInformation</span> @(<span class="par">`</span>\n' +
+'        @{Name=<span class="str">"Date of Birth (Custom)"</span>; minCount=<span class="str">"1"</span>}, <span class="par">`</span>\n' +
+'        @{Name=<span class="str">"U.S. Social Security Number (SSN)"</span>; minCount=<span class="str">"1"</span>}) <span class="par">`</span>\n' +
+'    <span class="par">-BlockAccess</span> <span class="var">$false</span> <span class="par">-EncryptRMSTemplate</span> <span class="str">"Encrypt"</span> <span class="par">`</span>\n' +
+'    <span class="par">-NotifyUser</span> <span class="str">Owner</span>'
+  },
+  transport: {
+    title: "[secure] transport rule",
+    sub: "Mail-flow rule that encrypts any message when staff add [secure] to the subject line.",
+    code:
+'<span class="cmt"># Connect to Exchange Online</span>\n' +
+'<span class="cmd">Connect-ExchangeOnline</span> <span class="par">-UserPrincipalName</span> <span class="str">admin@yourdomain.com</span>\n\n' +
+'<span class="cmt"># Encrypt outbound mail when subject contains the [secure] keyword</span>\n' +
+'<span class="cmd">New-TransportRule</span> <span class="par">-Name</span> <span class="str">"Encrypt when [secure] in subject"</span> <span class="par">`</span>\n' +
+'    <span class="par">-SubjectContainsWords</span> <span class="str">"[secure]"</span> <span class="par">`</span>\n' +
+'    <span class="par">-ApplyRightsProtectionTemplate</span> <span class="str">"Encrypt"</span> <span class="par">`</span>\n' +
+'    <span class="par">-SentToScope</span> <span class="str">NotInOrganization</span>\n\n' +
+'<span class="cmt"># Optional: also auto-encrypt anything DLP flags as PHI</span>\n' +
+'<span class="cmd">New-TransportRule</span> <span class="par">-Name</span> <span class="str">"Encrypt PHI detected by DLP"</span> <span class="par">`</span>\n' +
+'    <span class="par">-MessageContainsDataClassifications</span> @(<span class="par">`</span>\n' +
+'        @{Name=<span class="str">"U.S. Social Security Number (SSN)"</span>}, <span class="par">`</span>\n' +
+'        @{Name=<span class="str">"Date of Birth (Custom)"</span>}) <span class="par">`</span>\n' +
+'    <span class="par">-ApplyRightsProtectionTemplate</span> <span class="str">"Encrypt"</span>\n\n' +
+'<span class="cmt"># Confirm the rules are in place</span>\n' +
+'<span class="cmd">Get-TransportRule</span> | <span class="cmd">Format-Table</span> Name, State, Priority'
+  },
+  spf: {
+    title: "SPF record",
+    sub: "Publish a Sender Policy Framework record so receivers know which servers may send mail for the domain.",
+    code:
+'<span class="cmt"># SPF is published as a DNS TXT record (not Exchange).</span>\n' +
+'<span class="cmt"># For Microsoft 365, the value is:</span>\n' +
+'<span class="cmt">#   v=spf1 include:spf.protection.outlook.com -all</span>\n\n' +
+'<span class="cmt"># If DNS is hosted in Windows DNS / a server you manage:</span>\n' +
+'<span class="cmd">Add-DnsServerResourceRecord</span> <span class="par">-ZoneName</span> <span class="str">"yourdomain.com"</span> <span class="par">-Txt</span> <span class="par">`</span>\n' +
+'    <span class="par">-Name</span> <span class="str">"@"</span> <span class="par">`</span>\n' +
+'    <span class="par">-DescriptiveText</span> <span class="str">"v=spf1 include:spf.protection.outlook.com -all"</span>\n\n' +
+'<span class="cmt"># Verify what is currently published</span>\n' +
+'<span class="cmd">Resolve-DnsName</span> <span class="par">-Name</span> <span class="str">yourdomain.com</span> <span class="par">-Type</span> <span class="str">TXT</span> |\n' +
+'    <span class="cmd">Where-Object</span> { <span class="var">$_</span>.Strings <span class="par">-match</span> <span class="str">"spf1"</span> }'
+  },
+  dkim: {
+    title: "DKIM signing",
+    sub: "Enable DomainKeys Identified Mail so outbound messages are cryptographically signed.",
+    code:
+'<span class="cmt"># Connect to Exchange Online</span>\n' +
+'<span class="cmd">Connect-ExchangeOnline</span> <span class="par">-UserPrincipalName</span> <span class="str">admin@yourdomain.com</span>\n\n' +
+'<span class="cmt"># Create signing config + enable DKIM for the domain</span>\n' +
+'<span class="cmd">New-DkimSigningConfig</span> <span class="par">-DomainName</span> <span class="str">yourdomain.com</span> <span class="par">-Enabled</span> <span class="var">$true</span>\n\n' +
+'<span class="cmt"># Get the two CNAME selectors to publish at the DNS host</span>\n' +
+'<span class="cmd">Get-DkimSigningConfig</span> <span class="par">-Identity</span> <span class="str">yourdomain.com</span> |\n' +
+'    <span class="cmd">Format-List</span> Selector1CNAME, Selector2CNAME\n\n' +
+'<span class="cmt"># After the CNAMEs resolve, confirm signing is enabled</span>\n' +
+'<span class="cmd">Get-DkimSigningConfig</span> <span class="par">-Identity</span> <span class="str">yourdomain.com</span> |\n' +
+'    <span class="cmd">Format-List</span> Enabled, Status'
+  },
+  dmarc: {
+    title: "DMARC policy",
+    sub: "Publish DMARC with a phased rollout (p=quarantine; pct=25) and an aggregate-report mailbox.",
+    code:
+'<span class="cmt"># DMARC is a DNS TXT record at _dmarc.&lt;domain&gt;</span>\n' +
+'<span class="cmt"># Phased policy: quarantine 25% of failing mail, collect reports</span>\n' +
+'<span class="var">$dmarc</span> = <span class="str">"v=DMARC1; p=quarantine; pct=25; "</span> +\n' +
+'         <span class="str">"rua=mailto:dmarc@yourdomain.com; "</span> +\n' +
+'         <span class="str">"ruf=mailto:dmarc@yourdomain.com; fo=1"</span>\n\n' +
+'<span class="cmt"># Publish via Windows DNS (or paste the value into cPanel / your host)</span>\n' +
+'<span class="cmd">Add-DnsServerResourceRecord</span> <span class="par">-ZoneName</span> <span class="str">"yourdomain.com"</span> <span class="par">-Txt</span> <span class="par">`</span>\n' +
+'    <span class="par">-Name</span> <span class="str">"_dmarc"</span> <span class="par">-DescriptiveText</span> <span class="var">$dmarc</span>\n\n' +
+'<span class="cmt"># Verify, then raise to p=quarantine;pct=100 and finally p=reject</span>\n' +
+'<span class="cmd">Resolve-DnsName</span> <span class="par">-Name</span> <span class="str">_dmarc.yourdomain.com</span> <span class="par">-Type</span> <span class="str">TXT</span>'
+  },
+  defender: {
+    title: "Defender anti-phishing",
+    sub: "Microsoft Defender for Office 365 anti-phishing policy with spoof and impersonation protection.",
+    code:
+'<span class="cmt"># Connect to Exchange Online</span>\n' +
+'<span class="cmd">Connect-ExchangeOnline</span> <span class="par">-UserPrincipalName</span> <span class="str">admin@yourdomain.com</span>\n\n' +
+'<span class="cmt"># Create an anti-phishing policy with spoof + impersonation protection</span>\n' +
+'<span class="cmd">New-AntiPhishPolicy</span> <span class="par">-Name</span> <span class="str">"Twisted Pair Anti-Phish"</span> <span class="par">`</span>\n' +
+'    <span class="par">-EnableSpoofIntelligence</span> <span class="var">$true</span> <span class="par">`</span>\n' +
+'    <span class="par">-EnableTargetedUserProtection</span> <span class="var">$true</span> <span class="par">`</span>\n' +
+'    <span class="par">-EnableMailboxIntelligence</span> <span class="var">$true</span> <span class="par">`</span>\n' +
+'    <span class="par">-EnableMailboxIntelligenceProtection</span> <span class="var">$true</span> <span class="par">`</span>\n' +
+'    <span class="par">-AuthenticationFailAction</span> <span class="str">Quarantine</span> <span class="par">`</span>\n' +
+'    <span class="par">-SpoofQuarantineTag</span> <span class="str">DefaultFullAccessPolicy</span>\n\n' +
+'<span class="cmt"># Apply it to the accepted domain(s)</span>\n' +
+'<span class="cmd">New-AntiPhishRule</span> <span class="par">-Name</span> <span class="str">"Twisted Pair Anti-Phish"</span> <span class="par">`</span>\n' +
+'    <span class="par">-AntiPhishPolicy</span> <span class="str">"Twisted Pair Anti-Phish"</span> <span class="par">`</span>\n' +
+'    <span class="par">-RecipientDomainIs</span> <span class="str">yourdomain.com</span>'
+  }
+};
+
+(function(){
+  const modal=document.getElementById('psModal');
+  const titleEl=document.getElementById('psTitle');
+  const subEl=document.getElementById('psSub');
+  const codeEl=document.getElementById('psCode');
+  const copyBtn=document.getElementById('psCopy');
+  let lastFocus=null;
+
+  function openPS(key){
+    const d=PS[key]; if(!d) return;
+    lastFocus=document.activeElement;
+    titleEl.textContent=d.title;
+    subEl.textContent=d.sub;
+    codeEl.innerHTML=d.code;
+    copyBtn.textContent='\u{1F4CB} Copy code';
+    modal.classList.add('open');
+    document.getElementById('psClose').focus();
+  }
+  function closePS(){
+    modal.classList.remove('open');
+    if(lastFocus) lastFocus.focus();
+  }
+
+  document.querySelectorAll('.flow .hot').forEach(el=>{
+    el.addEventListener('click',()=>openPS(el.dataset.ps));
+    el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openPS(el.dataset.ps);}});
+  });
+  document.getElementById('psClose').addEventListener('click',closePS);
+  modal.addEventListener('click',e=>{if(e.target===modal)closePS();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closePS();});
+
+  copyBtn.addEventListener('click',()=>{
+    const text=codeEl.textContent;
+    navigator.clipboard.writeText(text).then(()=>{
+      copyBtn.textContent='\u2713 Copied!';
+      setTimeout(()=>copyBtn.textContent='\u{1F4CB} Copy code',1800);
+    }).catch(()=>{copyBtn.textContent='Press Ctrl+C';});
+  });
+})();
+</script>
 
 </body>
 </html>
