@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Portfolio — Kevin Smith</title>
+<style>
+  :root{
+    --ink:#10243e;        /* deep navy text */
+    --ink-soft:#3d5572;
+    --paper:#f7f9fc;
+    --card:#ffffff;
+    --line:#dfe7f1;
+    --accent:#0a6cff;     /* secure blue */
+    --accent-deep:#0b4ea8;
+    --good:#15803d;
+    --shield:#0a6cff;
+    --shadow:0 10px 30px rgba(16,36,62,.08);
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;font-family:"Segoe UI",-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--paper);line-height:1.6;
+  }
+  a{color:var(--accent-deep)}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+
+  /* Header */
+  header.masthead{
+    background:linear-gradient(135deg,#0b2545 0%,#13386b 55%,#0a6cff 140%);
+    color:#fff;padding:54px 0 46px;
+  }
+  .eyebrow{
+    text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;
+    font-weight:600;color:#a9c7ff;margin:0 0 10px;
+  }
+  header.masthead h1{font-size:2.5rem;line-height:1.1;margin:0 0 6px;font-weight:700}
+  header.masthead .role{font-size:1.1rem;color:#d6e4ff;margin:0 0 18px;font-weight:500}
+  header.masthead p.lede{max-width:640px;color:#e6eefc;margin:0 0 26px}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;padding:11px 20px;border-radius:9px;font-weight:600;
+    text-decoration:none;font-size:.95rem;transition:transform .15s ease,box-shadow .15s ease;
+  }
+  .btn-primary{background:#fff;color:var(--accent-deep)}
+  .btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35)}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.18)}
+
+  /* Section intro */
+  .section-head{margin:54px 0 8px}
+  .section-head .label{
+    text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;
+    font-weight:700;color:var(--accent);margin:0 0 6px;
+  }
+  .section-head h2{font-size:1.7rem;margin:0;font-weight:700}
+  .section-head p{color:var(--ink-soft);margin:8px 0 0;max-width:680px}
+
+  /* Project card */
+  .project{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);overflow:hidden;margin-top:26px;
+  }
+  .project-top{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:760px){.project-top{grid-template-columns:1fr}}
+
+  /* Visual panel */
+  .visual{
+    background:#0d2647;color:#fff;padding:26px;display:flex;flex-direction:column;
+    justify-content:center;min-height:300px;position:relative;
+  }
+  .visual.alt{background:#0b3a2e}
+  .visual .vlabel{
+    position:absolute;top:14px;left:18px;font-size:.66rem;letter-spacing:.16em;
+    text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600;
+  }
+  .screenshot-note{
+    margin-top:16px;font-size:.72rem;color:rgba(255,255,255,.6);
+    border-top:1px dashed rgba(255,255,255,.25);padding-top:10px;
+  }
+
+  /* Body panel */
+  .body{padding:28px}
+  .body h3{margin:0 0 4px;font-size:1.35rem}
+  .tagline{color:var(--accent-deep);font-weight:600;font-size:.92rem;margin:0 0 16px}
+  .meta-tags{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 18px}
+  .tag{
+    background:#eaf2ff;color:var(--accent-deep);font-size:.74rem;font-weight:600;
+    padding:4px 10px;border-radius:20px;
+  }
+  .body h4{
+    font-size:.74rem;text-transform:uppercase;letter-spacing:.14em;
+    color:var(--ink-soft);margin:18px 0 6px;font-weight:700;
+  }
+  .body p{margin:0 0 10px}
+  .body ul{margin:6px 0 10px;padding-left:20px}
+  .body li{margin-bottom:5px}
+
+  /* Resume callout */
+  .resume-band{
+    margin:54px 0 0;background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);box-shadow:var(--shadow);padding:30px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  }
+  .resume-band h3{margin:0 0 4px;font-size:1.3rem}
+  .resume-band p{margin:0;color:var(--ink-soft);max-width:520px}
+
+  footer{margin-top:54px;padding:30px 0;border-top:1px solid var(--line);color:var(--ink-soft);font-size:.85rem}
+
+  /* Inline SVG diagram helpers */
+  .flow{width:100%;height:auto}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">Career Portfolio</p>
+    <h1>Kevin Smith</h1>
+    <p class="role">IT Consultant &amp; Security Specialist · Owner, Twisted Pair Technology</p>
+    <p class="lede">Selected client engagements in Microsoft 365 security and email protection for healthcare and other regulated organizations. Each project below shows the goal, the scope, and my specific role in delivering it.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://kevinvsmith.github.io" target="_blank" rel="noopener">View Interactive Résumé →</a>
+      <a class="btn btn-ghost" href="#projects">See Projects</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="projects">
+
+  <div class="section-head">
+    <p class="label">Project 01</p>
+    <h2>HIPAA-Compliant Email Encryption in Microsoft 365</h2>
+    <p>Protecting patient health information (PHI) in transit for a medical client.</p>
+  </div>
+
+  <article class="project">
+    <div class="project-top">
+      <div class="visual">
+        <span class="vlabel">Visual · Encryption flow</span>
+        <svg class="flow" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Email encryption flow diagram">
+          <defs>
+            <marker id="arr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#7fb4ff"/>
+            </marker>
+          </defs>
+          <!-- sender -->
+          <rect x="18" y="100" width="92" height="56" rx="9" fill="#143a66" stroke="#3f7ad1"/>
+          <text x="64" y="124" fill="#cfe2ff" font-size="11" text-anchor="middle" font-family="Segoe UI">Medical</text>
+          <text x="64" y="140" fill="#cfe2ff" font-size="11" text-anchor="middle" font-family="Segoe UI">office staff</text>
+          <!-- M365 lock -->
+          <rect x="164" y="86" width="92" height="84" rx="9" fill="#0a6cff" stroke="#7fb4ff"/>
+          <text x="210" y="112" fill="#fff" font-size="11" text-anchor="middle" font-family="Segoe UI">Microsoft</text>
+          <text x="210" y="127" fill="#fff" font-size="11" text-anchor="middle" font-family="Segoe UI">Purview /</text>
+          <text x="210" y="142" fill="#fff" font-size="11" text-anchor="middle" font-family="Segoe UI">Azure RMS</text>
+          <!-- lock icon -->
+          <rect x="198" y="150" width="24" height="16" rx="2" fill="#fff"/>
+          <path d="M203 150 v-5 a7 7 0 0 1 14 0 v5" fill="none" stroke="#fff" stroke-width="2.4"/>
+          <!-- recipient -->
+          <rect x="310" y="100" width="92" height="56" rx="9" fill="#143a66" stroke="#3f7ad1"/>
+          <text x="356" y="124" fill="#cfe2ff" font-size="11" text-anchor="middle" font-family="Segoe UI">Patient /</text>
+          <text x="356" y="140" fill="#cfe2ff" font-size="11" text-anchor="middle" font-family="Segoe UI">provider</text>
+          <!-- arrows -->
+          <line x1="110" y1="128" x2="160" y2="128" stroke="#7fb4ff" stroke-width="2.2" marker-end="url(#arr)"/>
+          <line x1="256" y1="128" x2="306" y2="128" stroke="#7fb4ff" stroke-width="2.2" marker-end="url(#arr)"/>
+          <text x="135" y="120" fill="#9fc2f5" font-size="8.5" text-anchor="middle" font-family="Segoe UI">PHI email</text>
+          <text x="281" y="120" fill="#9fc2f5" font-size="8.5" text-anchor="middle" font-family="Segoe UI">encrypted</text>
+          <!-- title -->
+          <text x="210" y="40" fill="#fff" font-size="14" text-anchor="middle" font-family="Segoe UI" font-weight="600">Secure PHI in transit</text>
+          <text x="210" y="58" fill="#9fc2f5" font-size="10" text-anchor="middle" font-family="Segoe UI">Transport rules · DLP · Rights Management</text>
+          <text x="210" y="210" fill="#9fc2f5" font-size="9.5" text-anchor="middle" font-family="Segoe UI">Triggered by [secure] keyword &amp; sensitive-info detection</text>
+        </svg>
+        <p class="screenshot-note">Replace with a real screenshot of your Purview / Exchange transport rule or the encrypted-message recipient view.</p>
+      </div>
+      <div class="body">
+        <h3>Email Encryption</h3>
+        <p class="tagline">North Florida Thyroid Center · Capital Area Healthy Start</p>
+        <div class="meta-tags">
+          <span class="tag">Microsoft 365</span>
+          <span class="tag">Azure Rights Management</span>
+          <span class="tag">Microsoft Purview DLP</span>
+          <span class="tag">HIPAA</span>
+        </div>
+
+        <h4>Project goals &amp; scope</h4>
+        <p>Healthcare clients needed to email protected health information (PHI) to patients and providers without violating HIPAA. The goal was to guarantee that any message containing sensitive data — diagnoses, dates of birth, medical record numbers — is automatically encrypted in transit, while keeping the process simple enough for non-technical office staff.</p>
+        <p>Scope covered the full encryption pipeline in Microsoft 365: activating Azure Rights Management, building Data Loss Prevention (DLP) policies with custom sensitive-information types, creating mail-flow (transport) rules to trigger encryption, and producing the supporting documentation the practice needs for compliance.</p>
+
+        <h4>My specific role</h4>
+        <p>As the consultant and sole implementer, I:</p>
+        <ul>
+          <li>Activated and configured Azure Rights Management in each tenant.</li>
+          <li>Authored DLP compliance policies with custom sensitive-information types, including a UTF-16 BOM-encoded XML rule package to detect dates of birth.</li>
+          <li>Built bracketed-keyword transport rules so staff can force encryption by adding <em>[secure]</em> to a subject line.</li>
+          <li>Created recipient-facing email templates, a PHI Disclosure Log workbook, and CCD medical-records transmittal templates.</li>
+          <li>Tested end-to-end delivery and trained staff on day-to-day use.</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <div class="section-head">
+    <p class="label">Project 02</p>
+    <h2>Phishing Defense &amp; Spam Blocking in Microsoft 365</h2>
+    <p>Hardening email authentication and filtering to stop phishing before it reaches the inbox.</p>
+  </div>
+
+  <article class="project">
+    <div class="project-top">
+      <div class="visual alt">
+        <span class="vlabel">Visual · Email authentication stack</span>
+        <svg class="flow" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SPF DKIM DMARC filtering diagram">
+          <defs>
+            <marker id="arr2" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#6fe0ad"/>
+            </marker>
+          </defs>
+          <text x="210" y="32" fill="#fff" font-size="14" text-anchor="middle" font-family="Segoe UI" font-weight="600">Layered phishing defense</text>
+          <!-- incoming -->
+          <rect x="18" y="108" width="86" height="48" rx="9" fill="#114d3c" stroke="#3fa580"/>
+          <text x="61" y="129" fill="#d3f5e6" font-size="10.5" text-anchor="middle" font-family="Segoe UI">Inbound</text>
+          <text x="61" y="144" fill="#d3f5e6" font-size="10.5" text-anchor="middle" font-family="Segoe UI">email</text>
+          <!-- checks stack -->
+          <g font-family="Segoe UI">
+            <rect x="138" y="62" width="64" height="34" rx="7" fill="#0c6e51" stroke="#6fe0ad"/>
+            <text x="170" y="83" fill="#fff" font-size="11" text-anchor="middle">SPF</text>
+            <rect x="138" y="113" width="64" height="34" rx="7" fill="#0c6e51" stroke="#6fe0ad"/>
+            <text x="170" y="134" fill="#fff" font-size="11" text-anchor="middle">DKIM</text>
+            <rect x="138" y="164" width="64" height="34" rx="7" fill="#0c6e51" stroke="#6fe0ad"/>
+            <text x="170" y="185" fill="#fff" font-size="11" text-anchor="middle">DMARC</text>
+          </g>
+          <!-- defender -->
+          <rect x="244" y="100" width="74" height="64" rx="9" fill="#0a8f63" stroke="#6fe0ad"/>
+          <text x="281" y="126" fill="#fff" font-size="10" text-anchor="middle" font-family="Segoe UI">Defender</text>
+          <text x="281" y="140" fill="#fff" font-size="10" text-anchor="middle" font-family="Segoe UI">anti-spam</text>
+          <!-- outcomes -->
+          <rect x="346" y="74" width="60" height="32" rx="7" fill="#143a66" stroke="#3f7ad1"/>
+          <text x="376" y="94" fill="#cfe2ff" font-size="10" text-anchor="middle" font-family="Segoe UI">Inbox</text>
+          <rect x="346" y="158" width="60" height="32" rx="7" fill="#5a1d1d" stroke="#d98a8a"/>
+          <text x="376" y="178" fill="#f5d3d3" font-size="9" text-anchor="middle" font-family="Segoe UI">Quarantine</text>
+          <!-- arrows -->
+          <line x1="104" y1="132" x2="134" y2="100" stroke="#6fe0ad" stroke-width="2" marker-end="url(#arr2)"/>
+          <line x1="104" y1="132" x2="134" y2="131" stroke="#6fe0ad" stroke-width="2" marker-end="url(#arr2)"/>
+          <line x1="104" y1="132" x2="134" y2="178" stroke="#6fe0ad" stroke-width="2" marker-end="url(#arr2)"/>
+          <line x1="202" y1="132" x2="242" y2="132" stroke="#6fe0ad" stroke-width="2.2" marker-end="url(#arr2)"/>
+          <line x1="318" y1="118" x2="344" y2="92" stroke="#6fe0ad" stroke-width="2" marker-end="url(#arr2)"/>
+          <line x1="318" y1="146" x2="344" y2="172" stroke="#d98a8a" stroke-width="2" marker-end="url(#arr2)"/>
+          <text x="210" y="230" fill="#9fe6c8" font-size="9.5" text-anchor="middle" font-family="Segoe UI">Authenticated mail delivered · spoofed &amp; phishing mail quarantined</text>
+        </svg>
+        <p class="screenshot-note">Replace with a real screenshot of your DMARC DNS record, Defender anti-phishing policy, or a quarantine report.</p>
+      </div>
+      <div class="body">
+        <h3>Phishing &amp; Spam Protection</h3>
+        <p class="tagline">Twisted Pair Technology &amp; healthcare clients</p>
+        <div class="meta-tags">
+          <span class="tag">SPF</span>
+          <span class="tag">DKIM</span>
+          <span class="tag">DMARC</span>
+          <span class="tag">Microsoft Defender</span>
+        </div>
+
+        <h4>Project goals &amp; scope</h4>
+        <p>Email is the number-one entry point for attacks against small medical and professional offices. The goal was to cut phishing and spoofing by verifying that inbound mail is genuinely from who it claims to be, and by filtering malicious messages before they reach users.</p>
+        <p>Scope covered the email-authentication stack and filtering layer across multiple domains: publishing and tuning SPF records, enabling DKIM signing, deploying DMARC with a phased enforcement policy, and configuring Microsoft Defender anti-spam and anti-phishing protection — including domains hosted on Microsoft DNS and on cPanel.</p>
+
+        <h4>My specific role</h4>
+        <p>As the consultant and sole implementer, I:</p>
+        <ul>
+          <li>Configured full SPF, DKIM, and DMARC for twisttechnology.com (Microsoft-hosted DNS), with DKIM enabled and DMARC set to <em>p=quarantine; pct=25</em> for a controlled, phased rollout.</li>
+          <li>Began the same authentication build-out for thyroidcenter.com, where DNS is managed in cPanel.</li>
+          <li>Tuned Microsoft Defender anti-spam and anti-phishing policies to quarantine spoofed and malicious mail.</li>
+          <li>Monitored DMARC aggregate reports to confirm legitimate mail passed before raising enforcement.</li>
+          <li>Documented the configuration so the policy can be advanced from monitoring to full enforcement safely.</li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <section class="resume-band">
+    <div>
+      <h3>Interactive Résumé</h3>
+      <p>This portfolio is part of my interactive résumé site — including my background, skills, certifications, and a downloadable résumé.</p>
+    </div>
+    <a class="btn btn-primary" style="background:var(--accent);color:#fff" href="https://kevinvsmith.github.io" target="_blank" rel="noopener">Open Interactive Résumé →</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Kevin Smith · LIS 4708 IT Professions · Career Portfolio · Twisted Pair Technology
+  </div>
+</footer>
+
+</body>
+</html>
